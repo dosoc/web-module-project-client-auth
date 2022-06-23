@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom'
 import Login from './components/Login'
 import FriendList from './components/FriendsList'
 import AddFriends from './components/addFriends'
+import Logout from './components/Logout'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   return (
@@ -23,12 +25,9 @@ function App() {
         <Route exact path='/login'>
           <Redirect to="/"/>
         </Route>
-        <Route exact path='/friends'>
-          <FriendList/>
-        </Route>
-        <Route path='/friends/add'>
-          <AddFriends/>
-        </Route>
+        <PrivateRoute exact path='/friends' component={FriendList}/>
+        <PrivateRoute path='/friends/add' component={AddFriends}/>
+        <PrivateRoute path='/logout' component={Logout}/>
       </div>
     </Router>
   );

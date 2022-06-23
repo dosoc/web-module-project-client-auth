@@ -25,7 +25,6 @@ const AddFriends = () => {
             headers:{ authorization: token}
         })
             .then(res=> {
-                console.log(res)
                 push('/friends')
             })
             .catch(err=>{
