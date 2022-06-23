@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
-const Friends = () => {
+const FriendList = () => {
     const [friends, setFreinds] = useState([])
 
     const getData = () => {
@@ -19,6 +19,7 @@ const Friends = () => {
     useEffect(()=>{
         getData()
     },[])
+    
     return(
         <ul>
             {friends.map(friend=> {
@@ -30,4 +31,4 @@ const Friends = () => {
     )
 }
 
-export default Friends
+export default FriendList
